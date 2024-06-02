@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  calculator:
+    build:
+      context: .
+      dockerfile: cmd/calculator/Dockerfile
+    ports:
+      - "8333:8333"
+    depends_on:
+      - orchestrator
+
+  orchestrator:
+    build:
+      context: .
+      dockerfile: cmd/orchestrator/Dockerfile
+    ports:
+      - "8000:8000"
